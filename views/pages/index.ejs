@@ -3,15 +3,27 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <style>
 form {
+  /* Just to center the form on the page */
   margin: 0 auto;
   width: 500px;
-
+  /* To see the outline of the form */
   padding: 1.4em;
   border: 3px solid;
   border-radius: 2em;
-  text-align: center;
+  text-align:center;
+  margin-bottom: 25px;
   color:white;
   line-height:2;
+}
+
+img.display{
+width:80px;
+height: auto;
+display:block;
+margin-left:auto;
+margin-right:auto
+}
+
 }
 </style>
 <link href='https://fonts.googleapis.com/css?family=Bungee+Shade|News+Cycle' rel='stylesheet'>
@@ -20,7 +32,7 @@ form {
 Wikipedia to Powerpoint Generator
 </h1>
 
-<body style="border-image-slice: 0 12 0 12; border-image-width: 0px 12px 0px 12px; border-image-outset: 0px 0px 0px 0px; border-image-repeat: repeat repeat; border-image-source: url("https://mdn.mozillademos.org/files/6015/border-image-5.png");background-color:#FFFFFF;font-family:'News Cycle';">
+<body style="background-color:#FFFFFF;font-family:'News Cycle';">
 
 <form style="background-color:#D9D9D9">
   What would you like to make a PowerPoint about today?  <br>
@@ -44,6 +56,10 @@ What style PowerPoint do you want? <br>
 <form method="get" action="/ppt" style="background-color:#4484CE;">
    <button id="download" type="submit" name="download">Download!</button>
 </form>
+<txt1 style="text-align:center;">Click pug to download!</txt1>
+<a href="/images/myw3schoolsimage.jpg" download>
+  <img class = "display" src="https://cdn.pixabay.com/photo/2017/11/22/16/05/pug-2970827_960_720.png" alt="W3Schools">
+</a>
 <script lang="javascript" src="pptxgenjs/libs/jquery.min.js"></script>
 <script lang="javascript" src="pptxgenjs/libs/jszip.min.js"></script>
 <script lang="javascript" src="pptxgenjs/dist/pptxgen.js"></script>
