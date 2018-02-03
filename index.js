@@ -120,7 +120,12 @@ app.get('/', function(req, res) {
       var occupation = full_json.occupation.text;
       occupation = strip(makeGrammaticallyCorrectList(occupation));
     } catch(error){
-      var occupation = null;
+      try {
+        var occupation = full_json.office.text;
+        occupation = strip(makeGrammaticallyCorrectList(occupation));
+      } catch(error){
+        var occupation = null;
+      }
     }
 
     try {
