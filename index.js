@@ -24,7 +24,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-express().get('/ppt', function(req, res) {
+app.get('/ppt', function(req, res) {
     res.render('pages/download');
     var pptx = new PptxGenJS();
     var slide = pptx.addNewSlide();
