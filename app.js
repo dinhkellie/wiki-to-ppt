@@ -9,5 +9,3 @@ if (fs.existsSync('../dist/pptxgen.js')) {
 else {
 	PptxGenJS = require('pptxgenjs');
 }
-
-        
