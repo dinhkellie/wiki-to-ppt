@@ -12,7 +12,7 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 function createPPT() {
-  var pptx = new PptxGenJS();
+  pptx = new PptxGenJS();
   var slide = pptx.addNewSlide();
   slide.addText('Hello World!', { font_face: "Gothic", x:1.5, y:1.5, font_size:18, color:'363636' });
   pptx.save('Sample Presentationa');
