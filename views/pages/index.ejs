@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<script src="app.js"></script>
 <style>
 form {
   /* Just to center the form on the page */
@@ -41,8 +42,8 @@ What style PowerPoint do you want? <br>
   <input type="radio" name="gender" value="female"> Custom
 </form>
 
-<form method="get" action="/ppt"style="background-color:#4484CE;">
-   <button type="submit">Download!</button>
+<form method="get" action="/ppt" style="background-color:#4484CE;">
+   <button id="download" type="submit" name="download">Download!</button>
 </form>
 
 
