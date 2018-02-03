@@ -1,4 +1,3 @@
-
 function createPPT() {
     var pptx = new PptxGenJS();
     console.log("here");
