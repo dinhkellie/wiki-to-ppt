@@ -10,9 +10,4 @@ else {
 	PptxGenJS = require('pptxgenjs');
 }
 
-// document.getElementById('download').onclick = function() {
-    var pptx = new PptxGenJS();
-    var slide = pptx.addNewSlide();
-    slide.addText('Ok', { font_face: "Gothic", x:1.5, y:1.5, font_size:18, color:'363636' });
-    pptx.save('Sample Presentation');
-// }
+        

@@ -19,6 +19,7 @@ else {
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
+  .use(('/bower_components',  express.static(__dirname + '/bower_components')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
