@@ -21,9 +21,9 @@ function createPPT() {
 
     // var title = "Example Presentation";
 
-    var color = '363636';
+    var color = pptcustom.cvalue;
+    var font = pptcustom.tvalue;
     var title = "Example Presentation";
-
     var slide = pptx.addNewSlide();
     //Slide 1
     slide.addText(title,
