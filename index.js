@@ -219,6 +219,11 @@ express()
         // res.render('pages/index', {
         //   tagline: full_json
         // });
-      });
-    return res.render('pages/index') })
+		return res.render('pages/index', {
+			birth_name: birth_name,
+			birth_place: birth_place
+			});
+		})
+
+      })
     .listen(PORT, () => console.log(`Listening on ${ PORT }`));
