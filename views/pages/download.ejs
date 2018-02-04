@@ -61,6 +61,7 @@
               {
                   fontSize:30, align: 'ctr', x:1.5, y:5.0
               });
+            
               //Slide 2
               var slide2 = pptx.addNewSlide();
               slide2.addText("Key Facts",
@@ -89,7 +90,7 @@
               {
                   x:1.0, y:2.5, fontSize:30, align: 'left', bullet:true
               });
-              slide3.addText("<%= person %> is notable for <%= notable_for %>",
+              slide3.addText("<%= wiki_name %> is notable for <%= notable_for %>",
               {
                   x:1.0, y:4.0, fontSize:30, align: 'left', bullet:true
               });
