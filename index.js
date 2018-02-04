@@ -4,6 +4,8 @@ var app = express();
 const path = require('path');
 const PORT = process.env.PORT || 5000
 var wtf = require('wtf_wikipedia');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var userTypedName = "JK Rowling";
 
 app.use(express.static('public'));
 
@@ -16,6 +18,16 @@ if (fs.existsSync('../dist/pptxgen.js')) {
 }
 else {
   PptxGenJS = require("pptxgenjs");
+}
+
+
+//https://stackoverflow.com/questions/247483/http-get-request-in-javascript
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( "" );
+    return xmlHttp.responseText;
 }
 
 
@@ -49,6 +61,16 @@ function makeGrammaticallyCorrectList(str){
   return str;
 }
 
+console.log("User typed:",userTypedName);
+var xml = httpGet("https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch="+userTypedName);
+var json = JSON.parse(xml);
+try {
+  var wiki_name = json.query.search[0].title;
+} catch(error) {
+  var wiki_name = "";
+}
+console.log("Wikipedia name:",wiki_name);
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .use(('/bower_components',  express.static(__dirname + '/bower_components')))
@@ -56,10 +78,9 @@ express()
   .set('view engine', 'ejs')
   .get('/ppt', (req, res) => res.render('pages/download'))
   .get('/', (req, res) => {
-      wtf.from_api('Bill Clinton', 'en', function(markup) {
+      wtf.from_api(wiki_name, 'en', function(markup) {
         var data = wtf.parse(markup);
         var full_json = data.infoboxes[0].data;
-        // console.log(full_json);
 
         try {
           var birth_date = full_json.birth_date.text;
@@ -71,7 +92,7 @@ express()
             }
           }
         } catch(error){
-          var birth_date = null;
+          var birth_date = "";
         }
         try {
           var death_date = full_json.death_date.text;
@@ -83,32 +104,32 @@ express()
             }
           }
         } catch(error){
-          var death_date = null;
+          var death_date = "";
         }
 
         try {
           var birth_name = strip(full_json.birth_name.text);
         } catch(error){
-          var birth_name = null;
+          var birth_name = "";
         }
 
         try {
           var birth_place = strip(full_json.birth_place.text);
         } catch(error){
-          var birth_place = null;
+          var birth_place = "";
         }
 
         try {
           var pseudonym = full_json.pseudonym.text;
           pseudonym = strip(makeGrammaticallyCorrectList(pseudonym));
         } catch(error){
-          var pseudonym = null;
+          var pseudonym = "";
         }
 
         try {
           var image_name = strip(full_json.image.text);
         } catch(error){
-          var image_name = null;
+          var image_name = "";
         }
 
         try {
@@ -129,8 +150,8 @@ express()
           education = strip(education.slice(indexOfPipe+1,indexOfParen));
           // }
         } catch(error){
-          var education = null;
-          // var highest_degree = null;
+          var education = "";
+          // var highest_degree = "";
         }
 
         try {
@@ -141,7 +162,7 @@ express()
             var occupation = full_json.office.text;
             occupation = strip(makeGrammaticallyCorrectList(occupation));
           } catch(error){
-            var occupation = null;
+            var occupation = "";
           }
         }
 
@@ -151,7 +172,7 @@ express()
           try {
             var notable_for = strip(full_json.known_for.text);
           } catch(error) {
-            var notable_for = null;
+            var notable_for = "";
           }
         }
 
@@ -170,7 +191,6 @@ express()
               counter++;
             }
           }
-          console.log(counter);
           if (counter>2){
             var lastComma = newListString.lastIndexOf(',');
             website = "".concat(newListString.slice(0,lastComma+1)," and",newListString.slice(lastComma+1));
@@ -178,7 +198,7 @@ express()
             website = newListString;
           }
         } catch(error) {
-          var website = null;
+          var website = "";
         }
 
 
@@ -198,6 +218,11 @@ express()
         // res.render('pages/index', {
         //   tagline: full_json
         // });
-      });
-    return res.render('pages/index') })
+		return res.render('pages/index', {
+			birth_name: birth_name,
+			birth_place: birth_place
+			});
+		})
+
+      })
     .listen(PORT, () => console.log(`Listening on ${ PORT }`));
