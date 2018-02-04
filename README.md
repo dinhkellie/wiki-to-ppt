@@ -1,5 +1,5 @@
 # Wiki to PowerPoint
-Created during [FemmeHacks](femmehacks.io) 2018.
+Created during [FemmeHacks](https://femmehacks.io) 2018.
 Slides from our demo: https://goo.gl/y1pzHB
 ## Inspiration
 Creating a powerpoint should be simple. We wanted to create a boilerplate for powerpoint generation using Wikipedia content.
