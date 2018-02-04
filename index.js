@@ -61,7 +61,6 @@ function makeGrammaticallyCorrectList(str){
   return str;
 }
 
-console.log("User typed:",userTypedName);
 var xml = httpGet("https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch="+userTypedName);
 var json = JSON.parse(xml);
 try {
@@ -69,7 +68,6 @@ try {
 } catch(error) {
   var wiki_name = "";
 }
-console.log("Wikipedia name:",wiki_name);
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -128,8 +126,10 @@ express()
 
         try {
           var image_name = strip(full_json.image.text);
+          var image_url = ("https://en.wikipedia.org/wiki/"+wiki_name+"#/media/File:"+image_name).replace(' ','_');
         } catch(error){
           var image_name = "";
+          var image_url = "";
         }
 
         try {
@@ -201,13 +201,14 @@ express()
           var website = "";
         }
 
-
+        console.log("User typed:",userTypedName);
+        console.log("Wikipedia name:",wiki_name);
         console.log("Year of birth:",birth_date);
         console.log("Year of death:",death_date);
         console.log("Name at birth:",birth_name);
         console.log("Location of birth:",birth_place);
         console.log("Pseudonyms:",pseudonym);
-        console.log("Image names:",image_name);
+        console.log("Image url:",image_url);
         console.log("Education:",education);
         // console.log("Degree earned:",highest_degree);
         console.log("Occupation:",occupation);
