@@ -26,7 +26,7 @@ function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
+    xmlHttp.send( "" );
     return xmlHttp.responseText;
 }
 
@@ -92,7 +92,7 @@ express()
             }
           }
         } catch(error){
-          var birth_date = null;
+          var birth_date = "";
         }
         try {
           var death_date = full_json.death_date.text;
@@ -104,32 +104,32 @@ express()
             }
           }
         } catch(error){
-          var death_date = null;
+          var death_date = "";
         }
 
         try {
           var birth_name = strip(full_json.birth_name.text);
         } catch(error){
-          var birth_name = null;
+          var birth_name = "";
         }
 
         try {
           var birth_place = strip(full_json.birth_place.text);
         } catch(error){
-          var birth_place = null;
+          var birth_place = "";
         }
 
         try {
           var pseudonym = full_json.pseudonym.text;
           pseudonym = strip(makeGrammaticallyCorrectList(pseudonym));
         } catch(error){
-          var pseudonym = null;
+          var pseudonym = "";
         }
 
         try {
           var image_name = strip(full_json.image.text);
         } catch(error){
-          var image_name = null;
+          var image_name = "";
         }
 
         try {
@@ -150,8 +150,8 @@ express()
           education = strip(education.slice(indexOfPipe+1,indexOfParen));
           // }
         } catch(error){
-          var education = null;
-          // var highest_degree = null;
+          var education = "";
+          // var highest_degree = "";
         }
 
         try {
@@ -162,7 +162,7 @@ express()
             var occupation = full_json.office.text;
             occupation = strip(makeGrammaticallyCorrectList(occupation));
           } catch(error){
-            var occupation = null;
+            var occupation = "";
           }
         }
 
@@ -172,7 +172,7 @@ express()
           try {
             var notable_for = strip(full_json.known_for.text);
           } catch(error) {
-            var notable_for = null;
+            var notable_for = "";
           }
         }
 
@@ -198,7 +198,7 @@ express()
             website = newListString;
           }
         } catch(error) {
-          var website = null;
+          var website = "";
         }
 
 
