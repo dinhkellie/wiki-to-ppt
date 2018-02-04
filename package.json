@@ -14,8 +14,8 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "pptxgenjs": "^2.0.0",
-    "xmlhttprequest": "^1.8.0",
-    "wtf_wikipedia": "^2.5.0"
+    "wtf_wikipedia": "^2.5.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "request": "^2.81.0",
