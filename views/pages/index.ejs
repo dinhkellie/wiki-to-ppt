@@ -170,9 +170,63 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
                 x:1.0, y:4.0, fontSize:30, align: 'left', bullet:true
             });
 
+<<<<<<< HEAD
             pptx.save('Sample Presentation');
         }
         </script>
         <script src="scripts/formstuff.js" defer></script>
     </body>
     </html>
+=======
+  <form style="background-color:#D9D9D9">
+    What would you like to make a PowerPoint about today?  <br>
+    <input type="text" size="30" placeholder="Search for topic...">
+  </form>
+
+
+  <form style="background-color:#F9CF00">
+    What information would you like to include?<br>
+    <input type="checkbox" name="gender" value="male" checked> Background
+    <input type="checkbox" name="gender" value="female"> Notable Accomplishments <br>
+    <input type="checkbox" name="gender" value="male" checked> Quotes
+    <input type="checkbox" name="gender" value="female"> Images
+  </form>
+
+
+  <form style="background-color:#F19F4D">
+    What style PowerPoint do you want? <br>
+    <input type="radio" name="ppt-style" id="ppt-style-custom">
+    <label for="ppt-style-default">Custom</label>
+    <div class="reveal-if-active">
+      <label>Color Scheme</label>
+      <select>
+        <option cvalue="blue">Blue</option>
+        <option cvalue="pink">Pink</option>
+        <option cvalue="yellow">Yellow</option>
+        <option cvalue="green">Green</option>
+      </select>
+      <br>
+      <label>Font</label>
+      <select>
+        <option tvalue="arial">Arial</option>
+        <option tvalue="timesnewroman">Times New Roman</option>
+        <option tvalue="helvetica">Helvetica</option>
+        <option tvalue="georgia">Georgia</option>
+      </select>
+    </div>
+    <input type="radio" name="ppt-style" id="ppt-style-default">
+    <label for="ppt-style-default">Default</label>
+  </form>
+
+  <form method="get" action="/ppt" style="background-color:#4484CE">
+    <button id="download" onclick="createPPT()" type="submit" name="download">Download!</button>
+  </form>
+
+  <script lang="javascript" src="pptxgenjs/libs/jquery.min.js"></script>
+  <script lang="javascript" src="pptxgenjs/libs/jszip.min.js"></script>
+  <script lang="javascript" src="pptxgenjs/dist/pptxgen.js"></script>
+  <script src="scripts/script.js" defer></script>
+  <script src="scripts/formstuff.js" defer></script>
+</body>
+</html>
+>>>>>>> be849027ccc649ccc1d78d1d3cfc3ab90cb47ffc
