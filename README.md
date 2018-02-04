@@ -22,7 +22,9 @@ Successfully passing in the values obtained from the Wikipedia scraper to the PP
 Everything. Front-end and back-end development. What HTTP requests are, how to create a Node app, working with external libraries.
 
 ## What's next for wiki-to-ppt
-Be able to input any type of article, not just from Wikipedia, most likely incorporating Natural Language Processing to discern important information. More design options for the PowerPoint like fonts/colors/themes and animations.
+Step 2: Optimize the resulting powerpoint based on the type of article. Right now it is best suited for articles about people, i.e. JK Rowling. Add more design functionality rather that just black text on white background.
+Step 3: Processing the entire article using NLP to extract other details rather than relying on the key facts box.
+Future: Be able to input any type of article, not just from Wikipedia, most likely incorporating Natural Language Processing to discern important information. More design options for the PowerPoint like fonts/colors/themes and animations.
 
 THANK YOU TO ALL THE MENTORS WHO HELPED <3
 
