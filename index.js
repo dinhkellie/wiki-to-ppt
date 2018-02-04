@@ -220,8 +220,18 @@ express()
         //   tagline: full_json
         // });
 		return res.render('pages/index', {
+            userTypedName: userTypedName,
+            wiki_name: wiki_name,
+            birth_date: birth_date,
+            death_date: death_date,
 			birth_name: birth_name,
-			birth_place: birth_place
+			birth_place: birth_place,
+            pseudonym: pseudonym,
+            image_url: image_url,
+            education: education,
+            occupation: occupation,
+            notable_for: notable_for,
+            website: website
 			});
 		})
 
