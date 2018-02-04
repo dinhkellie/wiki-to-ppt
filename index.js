@@ -66,6 +66,9 @@ express()
 .use(('/bower_components',  express.static(__dirname + '/bower_components')))
 .set('views', path.join(__dirname, 'views'))
 .set('view engine', 'ejs')
+.get('/', (req, res) => {
+  return res.render('pages/index')
+})
 .get('/ppt', (req, res) => {
   var person = req.query["person"];
   var xml = httpGet("https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch="+person);
@@ -221,14 +224,20 @@ express()
     //   tagline: full_json
     // });
     return res.render('pages/download', {
+      person: person,
+      wiki_name: wiki_name,
+      birth_date: birth_date,
+      death_date: death_date,
       birth_name: birth_name,
       birth_place: birth_place,
-      person: person
+      pseudonym: pseudonym,
+      image_url: image_url,
+      education: education,
+      occupation: occupation,
+      notable_for: notable_for,
+      website: website
+
     });
   })
-})
-.get('/', (req, res) => {
-  return res.render('pages/index')
-
 })
 .listen(PORT, () => console.log(`Listening on ${ PORT }`));

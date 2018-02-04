@@ -2,91 +2,90 @@
 <html>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <style>
-
 .reveal-if-active {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
 }
 
 input[type="radio"]:checked ~ .reveal-if-active,
 input[type="checkbox"]:checked ~ .reveal-if-active {
-    opacity: 1;
-    max-height: 100px; /* little bit of a magic number :( */
-        overflow: visible;
-    }
+  opacity: 1;
+  max-height: 100px; /* little bit of a magic number :( */
+    overflow: visible;
+  }
 
-    .form {
-        /* Just to center the form on the page */
-        margin: 0 auto;
-        width: 500px;
-        /* To see the outline of the form */
-        padding: 1.4em;
-        border: 3px solid;
-        border-radius: 2em;
-        text-align:center;
-        margin-bottom: 25px;
-        color:white;
-        line-height:2;
-    }
+  .form {
+    /* Just to center the form on the page */
+    margin: 0 auto;
+    width: 500px;
+    /* To see the outline of the form */
+    padding: 1.4em;
+    border: 3px solid;
+    border-radius: 2em;
+    text-align:center;
+    margin-bottom: 25px;
+    color:white;
+    line-height:2;
+  }
 
-    img.display{
-        width:80px;
-        height: auto;
-        display:block;
-        margin-left:auto;
-        margin-right:auto
-    }
+  img.display{
+    width:80px;
+    height: auto;
+    display:block;
+    margin-left:auto;
+    margin-right:auto
+  }
 
 }
 </style>
 <link href='https://fonts.googleapis.com/css?family=Bungee+Shade|News+Cycle' rel='stylesheet'>
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <h1 style="background-color:#FFFFFF;color:#4484CE;font-size=500%;text-align:center;font-family:'Bungee Shade';">
-    Wikipedia to Powerpoint Generator
+  Wikipedia to Powerpoint Generator
 </h1>
 
 <body style="background-color:#FFFFFF;font-family:'News Cycle';">
 
-<form method="get" action="/ppt" >
+  <form method="get" action="/ppt" >
 
     <div class="form" style="background-color:#D9D9D9">
-        What would you like to make a PowerPoint about today?  <br>
-        <input type="text" name="person" placeholder="Name of Person">
+      What would you like to make a PowerPoint about today?  <br>
+      <input type="text" name="person" placeholder="Name of Person">
     </div>
 
     <div class="form" style="background-color:#F9CF00">
-        What information would you like to include?<br>
-        <input type="checkbox" name="gender" value="male" checked> Background
-        <input type="checkbox" name="gender" value="female"> Notable Accomplishments <br>
-        <input type="checkbox" name="gender" value="male" checked> Quotes
-        <input type="checkbox" name="gender" value="female"> Images
+      What information would you like to include?<br>
+      <input type="checkbox" name="gender" value="male" checked> Background
+      <input type="checkbox" name="gender" value="female"> Notable Accomplishments <br>
+      <input type="checkbox" name="gender" value="male" checked> Quotes
+      <input type="checkbox" name="gender" value="female"> Images
     </div>
 
 
     <div class="form" style="background-color:#F19F4D">
-        What style PowerPoint do you want? <br>
-        <input type="radio" name="ppt-style" id="ppt-style-custom">
-        <label for="ppt-style-default">Custom</label>
-        <div class="reveal-if-active">
-            <label>Color Scheme</label>
-            <select>
-                <option value="blue">Blue</option>
-                <option value="pink">Pink</option>
-                <option value="yellow">Yellow</option>
-                <option value="green">Green</option>
-            </select>
-            <br>
-            <label>Font</label>
-            <select>
-                <option value="arial">Arial</option>
-                <option value="timesnewroman">Times New Roman</option>
-                <option value="helvetica">Helvetica</option>
-                <option value="georgia">Georgia</option>
-            </select>
-        </div>
-        <input type="radio" name="ppt-style" id="ppt-style-default">
-        <label for="ppt-style-default">Default</label>
+      What style PowerPoint do you want? <br>
+      <input type="radio" name="ppt-style" id="pptstylecustom">
+      <label for="ppt-style-default">Custom</label>
+      <div class="reveal-if-active">
+        <label>Color Scheme</label>
+        <select>
+          <option cvalue="blue">Blue</option>
+          <option cvalue="pink">Pink</option>
+          <option cvalue="yellow">Yellow</option>
+          <option cvalue="green">Green</option>
+        </select>
+        <br>
+        <label>Font</label>
+        <select>
+          <option tvalue="arial">Arial</option>
+          <option tvalue="timesnewroman">Times New Roman</option>
+          <option tvalue="helvetica">Helvetica</option>
+          <option tvalue="georgia">Georgia</option>
+        </select>
+      </div>
+      <input type="radio" name="ppt-style" id="ppt-style-default">
+      <label for="ppt-style-default">Default</label>
     </div>
 
     <div class="form">
@@ -95,6 +94,6 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 
 
   </form>
-        <script src="scripts/formstuff.js" defer></script>
-    </body>
-    </html>
+  <script src="scripts/formstuff.js" defer></script>
+</body>
+</html>
