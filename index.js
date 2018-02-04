@@ -4,6 +4,8 @@ var app = express();
 const path = require('path');
 const PORT = process.env.PORT || 5000
 var wtf = require('wtf_wikipedia');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var userTypedName = "JK Rowling";
 
 app.use(express.static('public'));
 
@@ -16,6 +18,16 @@ if (fs.existsSync('../dist/pptxgen.js')) {
 }
 else {
   PptxGenJS = require("pptxgenjs");
+}
+
+
+//https://stackoverflow.com/questions/247483/http-get-request-in-javascript
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
 }
 
 
@@ -49,6 +61,16 @@ function makeGrammaticallyCorrectList(str){
   return str;
 }
 
+console.log("User typed:",userTypedName);
+var xml = httpGet("https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch="+userTypedName);
+var json = JSON.parse(xml);
+try {
+  var wiki_name = json.query.search[0].title;
+} catch(error) {
+  var wiki_name = "";
+}
+console.log("Wikipedia name:",wiki_name);
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .use(('/bower_components',  express.static(__dirname + '/bower_components')))
@@ -56,10 +78,9 @@ express()
   .set('view engine', 'ejs')
   .get('/ppt', (req, res) => res.render('pages/download'))
   .get('/', (req, res) => {
-      wtf.from_api('Bill Clinton', 'en', function(markup) {
+      wtf.from_api(wiki_name, 'en', function(markup) {
         var data = wtf.parse(markup);
         var full_json = data.infoboxes[0].data;
-        // console.log(full_json);
 
         try {
           var birth_date = full_json.birth_date.text;
@@ -170,7 +191,6 @@ express()
               counter++;
             }
           }
-          console.log(counter);
           if (counter>2){
             var lastComma = newListString.lastIndexOf(',');
             website = "".concat(newListString.slice(0,lastComma+1)," and",newListString.slice(lastComma+1));
