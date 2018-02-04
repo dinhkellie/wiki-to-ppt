@@ -1,39 +1,31 @@
-# node-js-getting-started
+# Wiki to PowerPoint
+Created during [FemmeHacks](femmehacks.io) 2018.
+Slides from our demo: https://docs.google.com/presentation/d/1A0iEr0tg_DKHuQhP4UAHI98qGhSjpMuVm6NtuZm3lo0/edit?usp=sharing
+## Inspiration
+Creating a powerpoint should be simple. We wanted to create a boilerplate for powerpoint generation using Wikipedia content.
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+## What it does
+User types in the name of the article, chooses some options for design, and then clicks download to get their generated powerpoint!
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+## How we built it
+Front-end: EJS, HTML, CSS, Bootstrap
+Back-end: Node.js, Express, EJS, PptxGenJS (PowerPoint generation library), WTF-Wikipedia (Wikipedia scraping library)
 
-## Running Locally
+## Challenges we ran into
+Integrating each of our roles (one on front-end, one on PPT library, one for Wiki) into the main product.
+Getting something that worked locally to work on our deployed Node instance on Heroku
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
+## Accomplishments that we're proud of
+Successfully passing in the values obtained from the Wikipedia scraper to the PPT generator
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+## What we learned
+Everything. Front-end and back-end development. What HTTP requests are, how to create a Node app, working with external libraries.
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+## What's next for wiki-to-ppt
+Be able to input any type of article, not just from Wikipedia, most likely incorporating Natural Language Processing to discern important information. More design options for the PowerPoint like fonts/colors/themes and animations.
 
-## Deploying to Heroku
+THANK YOU TO ALL THE MENTORS WHO HELPED <3
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+This application was started using Heroku's [getting started with nodejs](https://devcenter.heroku.com/articles/getting-started-with-nodejs) project files. 
 
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
